@@ -89,11 +89,30 @@
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
 
+  /* botón success */
+  --create-300: hsl(155, 45%, 75%);
+  --create-400: hsl(155, 50%, 60%);
+  --create-500: hsl(155, 55%, 45%);
+  --create-600: hsl(155, 60%, 35%);
+
+  /* Azul tablas */
+  --table-blue-50: hsl(211, 97%, 23%);
+  --table-blue-100: hsl(210, 30%, 92%);
+  --table-blue-200: hsl(210, 25%, 88%);
+
   /* Bordes radius */
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
+
+  /* submenus amarillos */
+  --submodule-300: hsl(38, 85%, 85%);
+  --submodule-400: hsl(38, 90%, 75%);
+  --submodule-500: hsl(38, 95%, 60%);
+  --submodule-600: hsl(38, 90%, 48%);
+  --submodule-700: hsl(38, 85%, 38%);
+
 
   /* Transiciones */
   --transition-fast: 150ms ease;

@@ -1,0 +1,50 @@
+.container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 1rem;
+    width: 20px !important;
+    height: 20px !important;
+    color: #888888;
+    /* Color explícito fallback */
+    color: var(--gray-400);
+    pointer-events: none;
+    transition: color 0.2s ease;
+    z-index: 20;
+    /* Z-index mayor */
+    display: block;
+}
+
+.input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    /* Espacio para el icono */
+    font-size: 0.95rem;
+    line-height: normal;
+    color: var(--text-primary);
+    background-color: white;
+    border: 1px solid var(--gray-300);
+    border-radius: 2rem;
+    /* Bordes redondeados tipo pill */
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.input:focus {
+    background-color: white;
+    border-color: var(--primary-400);
+    box-shadow: 0 0 0 3px var(--primary-100);
+}
+
+.input:focus+.searchIcon {
+    color: var(--primary-500);
+}
+
+.input::placeholder {
+    color: var(--gray-400);
+}

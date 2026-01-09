@@ -81,3 +81,22 @@
     background: var(--primary-500);
     color: white;
 }
+
+/* Create / Success Variant */
+.create {
+    background: linear-gradient(135deg, var(--create-500), var(--create-600));
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.create:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--create-600), var(--create-500));
+    /* Invertido sutilmente o más oscuro */
+    filter: brightness(0.9);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
+}
+
+.create:active:not(:disabled) {
+    transform: translateY(0);
+}

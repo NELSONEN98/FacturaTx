@@ -1,0 +1,138 @@
+/* Main Header Container */
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Primary Navigation (Top Bar) */
+.primaryNav {
+    width: 100%;
+    height: 60px;
+    background: var(--white-ice);
+    border-bottom: 1px solid var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--spacing-xl);
+}
+
+.leftSection {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    height: 100%;
+}
+
+.logoImage {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+}
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 100%;
+}
+
+.menuLink {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 var(--spacing-md);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all var(--transition-fast);
+}
+
+.menuLink:hover {
+    color: var(--primary-600);
+    background: var(--gray-50);
+}
+
+.menuLink.active {
+    color: var(--primary-600);
+    border-bottom-color: var(--primary-500);
+    background: var(--primary-50);
+}
+
+/* Secondary Navigation Wrapper */
+/* Contenedor global de la sección secundaria (Título + Links) */
+.secondaryNav {
+    width: 100%;
+    background: var(--white-ice);
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    flex-direction: column;
+    /* Apilamos título y links verticalmente */
+}
+
+/* Fila del Título (Row 2) */
+.moduleTitleRow {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-xl);
+    background: var(--gray-50);
+    /* Fondo ligeramente diferente para distinguir */
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.moduleTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gray-600);
+}
+
+/* Fila de Links (Row 3) */
+.secondaryLinksRow {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--spacing-xl);
+    overflow-x: auto;
+    gap: var(--spacing-md);
+}
+
+.subLink {
+    display: flex;
+    align-items: center;
+    height: 70%;
+    padding: 0 var(--spacing-md);
+    color: var(--gray-600);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+}
+
+.subLink:hover {
+    color: var(--gray-600);
+    background: var(--gray-50);
+}
+
+.subLink.active {
+    color: var(--white-ice);
+    background: var(--primary-600);
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+    border-radius: 1.5rem;
+}
+
+.userSection {
+    margin-left: auto;
+    border-left: 1px solid var(--gray-100);
+    padding-left: var(--spacing-md);
+    height: 60%;
+    display: flex;
+    align-items: center;
+}

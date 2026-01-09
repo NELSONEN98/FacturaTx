@@ -1,5 +1,4 @@
-import Sidebar from '@/components/dashboard/Sidebar';
-import Navbar from '@/components/dashboard/Navbar';
+import TopNav from '@/components/dashboard/TopNav';
 import styles from './layout.module.css';
 
 export default function DashboardLayout({
@@ -9,7 +8,7 @@ export default function DashboardLayout({
 }) {
     return (
         <div className={styles.dashboardContainer}>
-            <Sidebar />
+            <TopNav />
 
             <div className={styles.mainContentWrapper}>
 
