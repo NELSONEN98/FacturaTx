@@ -1,64 +1,62 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { UserButton, SignInButton, SignedIn, SignedOut, useUser } from '@clerk/nextjs';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const router = useRouter();
-
-    const handleLogout = () => {
-        // Aquí iría la lógica real de logout (borrar tokens, etc.)
-        console.log('Cerrando sesión...');
-        router.push('/login');
-    };
+    const { user } = useUser();
 
     return (
         <header className={styles.navbar}>
-            {/* Click outside overlay (solo visible cuando el menú está abierto) */}
-            {isMenuOpen && (
-                <div
-                    style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 90 }}
-                    onClick={() => setIsMenuOpen(false)}
-                />
-            )}
-
-            <div
-                className={styles.userProfile}
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-                <div className={styles.userInfo}>
-                    <span className={styles.userName}>Nelson Developer</span>
-                    <span className={styles.userRole}>Administrador</span>
+            <SignedIn>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    {/* Optional: Show name next to the button if desired, mirroring previous design */}
+                    <div className={styles.userInfo} style={{ marginRight: '0.5rem', textAlign: 'right' }}>
+                        <span className={styles.userName}>
+                            {user?.fullName || user?.firstName || 'Usuario'}
+                        </span>
+                        <span className={styles.userRole}>
+                            {/* Role can be fetched from metadata if stored there, for now static or hidden */}
+                        </span>
+                    </div>
+                    <UserButton>
+                        <UserButton.MenuItems>
+                            <UserButton.Link
+                                label="Mis datos"
+                                href="/dashboard/perfil"
+                                labelIcon={<span>👤</span>}
+                            />
+                            <UserButton.Link
+                                label="Comunicados"
+                                href="/dashboard/comunicados"
+                                labelIcon={<span>📢</span>}
+                            />
+                            <UserButton.Link
+                                label="Mis paquetes"
+                                href="/dashboard/paquetes"
+                                labelIcon={<span>📦</span>}
+                            />
+                            <UserButton.Link
+                                label="Tutoriales"
+                                href="/dashboard/tutoriales"
+                                labelIcon={<span>🎓</span>}
+                            />
+                            <UserButton.Link
+                                label="Soporte"
+                                href="/dashboard/soporte"
+                                labelIcon={<span>🛠️</span>}
+                            />
+                        </UserButton.MenuItems>
+                    </UserButton>
                 </div>
-                <div className={styles.avatar}>
-                    ND
-                </div>
-            </div>
-
-            {/* Menú Desplegable */}
-            {isMenuOpen && (
-                <div className={styles.dropdownMenu}>
-                    <button className={styles.dropdownItem} onClick={() => console.log('Mis Datos')}>
-                        Mis Datos
+            </SignedIn>
+            <SignedOut>
+                <SignInButton>
+                    <button className={styles.dropdownItem} style={{ border: '1px solid var(--gray-200)', borderRadius: 'var(--radius-md)', padding: '0.5rem 1rem' }}>
+                        Iniciar Sesión
                     </button>
-                    <button className={styles.dropdownItem} onClick={() => console.log('Mis Paquetes')}>
-                        Mis Paquetes
-                    </button>
-                    <div className={styles.dropdownDivider} />
-                    <button className={styles.dropdownItem} onClick={() => console.log('Soporte')}>
-                        Soporte
-                    </button>
-                    <div className={styles.dropdownDivider} />
-                    <button
-                        className={`${styles.dropdownItem} ${styles.logout}`}
-                        onClick={handleLogout}
-                    >
-                        Cerrar Sesión
-                    </button>
-                </div>
-            )}
+                </SignInButton>
+            </SignedOut>
         </header>
     );
 }

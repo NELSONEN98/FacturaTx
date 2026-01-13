@@ -111,7 +111,7 @@ export default function Sidebar() {
                                         onClick={() => toggleMenu(module.id)}
                                     >
                                         <div className={styles.menuButtonContent}>
-                                            <span className={styles.icon}>{module.icon}</span>
+                                            {/* <span className={styles.icon}>{module.icon}</span> */}
                                             <span>{module.title}</span>
                                         </div>
                                         <span className={`${styles.arrow} ${isOpen ? styles.open : ''}`}>▼</span>
@@ -135,11 +135,11 @@ export default function Sidebar() {
                                 </>
                             ) : (
                                 <Link
-                                    href={module.path}
+                                    href={module.path || '#'}
                                     className={`${styles.menuButton} ${pathname === module.path ? styles.active : ''}`}
                                 >
                                     <div className={styles.menuButtonContent}>
-                                        <span className={styles.icon}>{module.icon}</span>
+                                        {/* <span className={styles.icon}>{module.icon}</span> */}
                                         <span>{module.title}</span>
                                     </div>
                                 </Link>
