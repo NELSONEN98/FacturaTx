@@ -1,14 +1,12 @@
 .navbar {
-    height: 5rem;
-    background: var(--gray-50);
-    border-bottom: 1px solid var(--gray-200);
     display: flex;
-    align-items: left;
-    justify-content: flex-end;
-    padding: 0 var(--spacing-xl);
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    align-items: center;
+    padding: 0;
+    background: transparent;
+    border: none;
+    height: 100%;
+    position: relative;
+    /* Necesario para el dropdown absoluto */
 }
 
 .userProfile {
@@ -47,7 +45,6 @@
     height: 40px;
     border-radius: 50%;
     background: var(--primary-100);
-    /* Color suave de fondo */
     color: var(--primary-600);
     display: flex;
     align-items: center;
@@ -55,4 +52,67 @@
     font-weight: 700;
     font-size: 1.125rem;
     border: 2px solid var(--primary-200);
+}
+
+/* Dropdown Menu */
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    /* Justo debajo */
+    right: 0;
+    width: 200px;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--gray-100);
+    overflow: hidden;
+    z-index: 100;
+    padding: var(--spacing-xs) 0;
+    animation: fadeIn 0.15s ease-out;
+    margin-top: var(--spacing-xs);
+}
+
+.dropdownItem {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+    text-decoration: none;
+}
+
+.dropdownItem:hover {
+    background-color: var(--gray-50);
+    color: var(--primary-600);
+}
+
+.dropdownDivider {
+    height: 1px;
+    background-color: var(--gray-100);
+    margin: var(--spacing-xs) 0;
+}
+
+.dropdownItem.logout {
+    color: var(--error);
+}
+
+.dropdownItem.logout:hover {
+    background-color: #fff0f0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

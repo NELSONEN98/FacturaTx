@@ -1,8 +1,12 @@
-export default function DashboardPage() {
+import { currentUser } from '@clerk/nextjs/server';
+
+export default async function DashboardPage() {
+    const user = await currentUser();
+
     return (
         <div>
             <h1 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>
-                Bienvenido al Panel de Control
+                ¡Hola, {user?.firstName || 'Usuario'}! Bienvenido al Panel de Control
             </h1>
             <p style={{ color: 'var(--text-secondary)' }}>
                 Selecciona una opción del menú lateral para comenzar a gestionar tu facturación.
